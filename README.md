@@ -207,7 +207,7 @@ as a remote and pushing to it.
 
 ```
 $ git remote add myrepo git@github.com:pusheen/perl-coding-exercise.git
-$ git push myrepo master
+$ git push myrepo main
 ```
 
 __4.__ Access
