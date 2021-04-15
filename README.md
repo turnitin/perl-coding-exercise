@@ -155,7 +155,7 @@ And then point it at your solution, passing in the top-level URL to a running
 server:
 
 ```
-$ docker run --rm turnitin-check http://myhost:8888
+$ docker run --rm turnitin-check http://myhost:8080
 ```
 
 If everything is working you should expect to see output like this:
