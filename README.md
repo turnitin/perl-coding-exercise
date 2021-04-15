@@ -112,14 +112,28 @@ with a Postgres database and Redis key/value store. When we run your
 application we'll check out your git repository and run `docker-compose up` and
 expect it to run.
 
-Noe that your solution does not have use either Postgres or Redis to store its
-state -- we'll restart your service every time we check its output. But if
+Note that your solution does not have to use either Postgres or Redis to store its
+state -- we'll restart your service every time we check its output. If
 you'd like to use a persistent store for state you should use one of those two.
 
 If you use CPAN modules, you should use a `cpanfile` to declare them. There is
-a starter `cpanfile` in this directory, and the `Dockerfile` uses `cpanm` to
-install the modules listed in that file. When we run `docker-compose build` the
+a starter [`cpanfile`](app/cpanfile) in the `app` directory, and the `Dockerfile` uses `cpanm` to
+install the modules listed in that file. When we run `docker-compose up --build` the
 container for your service will be built and ready to go.
+
+If you use postgres database, there is a starter [`app.sql`](sql/app.sql) file in the `sql` directory
+Modify this to set up your desired database schema. To recreate the database you will 
+need to reload and refresh the docker volumes with `docker-compose up -V`
+
+There is a redis cache, if you do use it, you can wipe / recreate the cache, to do so
+reload similarly to the DB schema with `docker-compose up -V`.
+
+If you need to change the command that is used at start up (currently `CMD [ "perl", "app.pl" ]`),
+change the `CMD` that is used by the [`Dockerfile`](Dockerfile).
+
+The example hello world app in this repo uses `Mojolicious`, please feel free to use whatever framework /
+approach you like. The example is also in a single `.pl` file, please feel free to restructure
+the application to whatever structure you feel is appropriate.
 
 __5.__ Testing
 
@@ -207,14 +221,14 @@ as a remote and pushing to it.
 
 ```
 $ git remote add myrepo git@github.com:pusheen/perl-coding-exercise.git
-$ git push myrepo main
+$ git push myrepo master
 ```
 
 __4.__ Access
 
 Give these GitHub users read access to your repository:
 * janinedog
-* ip-pauldawson
+* omgwagon
 * mauton
 
 __5.__ Notify us

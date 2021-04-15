@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Perl5Settings">
+    <option name="targetPerlVersion">
+      <PerlVersion>
+        <option name="major" value="20" />
+        <option name="revision" value="5" />
+      </PerlVersion>
+    </option>
+    <option name="PERL_CRITIC_ENABLED" value="true" />
+    <option name="PERL_TIDY_ARGS" value="-profile=/Users/pdawson/.perltidyrc" />
+    <option name="PERL_CRITIC_ARGS" value="--profile /Users/pdawson/.perlcriticrc --theme common" />
+  </component>
+</project>

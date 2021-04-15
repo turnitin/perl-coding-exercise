@@ -1,10 +1,8 @@
-FROM       debian:stable-slim
-RUN        mkdir /app
-WORKDIR    /app
-ADD        cpanfile /app/
-RUN        apt-get update
-RUN        apt-get install -y make gcc cpanminus
-RUN        cpanm --installdeps .
-ADD        . /app
+FROM perl:5.28
 
-ENTRYPOINT [ "perl", "test.pl" ]
+COPY app /usr/src/myapp
+WORKDIR /usr/src/myapp
+
+RUN cpanm --installdeps .
+
+CMD [ "perl", "app.pl" ]

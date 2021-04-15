@@ -1,0 +1,5 @@
+requires 'Data::Dumper';
+requires 'Moose';
+requires 'Mojolicious::Lite';
+requires 'Mojo::Pg';
+requires 'Cache::Redis';
