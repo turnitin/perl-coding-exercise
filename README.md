@@ -121,12 +121,11 @@ a starter [`cpanfile`](app/cpanfile) in the `app` directory, and the `Dockerfile
 install the modules listed in that file. When we run `docker-compose up --build` the
 container for your service will be built and ready to go.
 
-If you use postgres database, there is a starter [`app.sql`](sql/app.sql) file in the `sql` directory
+If you use a Postgres database, there is a starter [`app.sql`](sql/app.sql) file in the `sql` directory.
 Modify this to set up your desired database schema. To recreate the database you will 
-need to reload and refresh the docker volumes with `docker-compose up -V`
+need to reload and refresh the Docker volumes with `docker-compose up -V`
 
-There is a redis cache, if you do use it, you can wipe / recreate the cache, to do so
-reload similarly to the DB schema with `docker-compose up -V`.
+If you use a Redis cache, you can wipe / recreate the cache with `docker-compose up -V`, similarly to the DB schema.
 
 If you need to change the command that is used at start up (currently `CMD [ "perl", "app.pl" ]`),
 change the `CMD` that is used by the [`Dockerfile`](Dockerfile).
