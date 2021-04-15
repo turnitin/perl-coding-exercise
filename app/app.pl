@@ -1,5 +1,4 @@
 #!/usr/bin/env perl
-use Moose;
 use Mojolicious::Lite -signatures;
 use Mojo::Pg;
 use Cache::Redis;
