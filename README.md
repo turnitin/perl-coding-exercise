@@ -238,7 +238,9 @@ Give these GitHub users read access to your repository:
 __5.__ Notify us
 
 When you're ready, please send your repository address to your recruiter
-contact.
+contact. If you have any questions about this exercise or if you're running
+into problems, don't hesitate to reach out to your recruiter and they will
+pass the message on to the engineering hiring team.
 
 __6.__ Resources
 
