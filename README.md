@@ -158,8 +158,14 @@ $ docker build -t turnitin-check .
 And then point it at your solution, passing in the top-level URL to a running
 server:
 
+__Docker for Mac and Docker for Windows__
 ```
-$ docker run --rm turnitin-check http://localhost:8080
+$ docker run --rm turnitin-check http://host.docker.internal:8080
+```
+
+__Docker for Linux__
+```
+$ docker run --network="host" --rm turnitin-check http://127.0.0.1:8080
 ```
 
 If everything is working you should expect to see output like this:
