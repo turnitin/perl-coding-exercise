@@ -107,35 +107,39 @@ solution, but be prepared to explain why you chose the modules you did.
 __2.__ Runtime
 
 Your solution must be runnable via Docker. There's a starter
-`docker-compose.yml` file in this directory you can use to run your solution
+[`docker-compose.yml`](docker-compose.yml) file in this directory you can use to run your solution
 with a Postgres database and Redis key/value store. When we run your
-application we'll check out your git repository and run `docker-compose up` and
-expect it to run.
+application, we'll check out your GitHub repository and run `docker-compose up` and
+expect it to run. If you're familiar with Docker and Docker Compose, you're welcome
+to change the [`docker-compose.yml`](docker-compose.yml) and/or [`Dockerfile`](Dockerfile), but you will not need to change
+those files to complete this exercise.
 
 Note that your solution does not have to use either Postgres or Redis to store its
-state -- we'll restart your service every time we check its output. If
-you'd like to use a persistent store for state you should use one of those two.
+state -- we'll restart your service every time we check its output. However, if
+you'd like to use a persistent store for state, you should use one of those two options.
 
 If you use CPAN modules, you should use a `cpanfile` to declare them. There is
 a starter [`cpanfile`](app/cpanfile) in the `app` directory, and the `Dockerfile` uses `cpanm` to
-install the modules listed in that file. When we run `docker-compose up --build` the
-container for your service will be built and ready to go.
+install the modules listed in that file. When you run `docker-compose up --build`, the
+container for your service will be built and ready to go, including installing all module dependencies from CPAN. If and when you change your `cpanfile`,
+you will need to re-run `docker-compose up --build` to install any new modules that you've defined.
 
 If you use a Postgres database, there is a starter [`app.sql`](sql/app.sql) file in the `sql` directory.
 Modify this to set up your desired database schema. To recreate the database you will 
-need to reload and refresh the Docker volumes with `docker-compose up -V`
+need to reload and refresh the Docker volumes with `docker-compose up -V`.
 
-If you use a Redis cache, you can wipe / recreate the cache with `docker-compose up -V`, similarly to the DB schema.
+If you use a Redis cache, you can wipe / recreate the cache with `docker-compose up -V`, similarly to the database schema.
 
 If you need to change the command that is used at start up (currently `CMD [ "perl", "app.pl" ]`),
 change the `CMD` that is used by the [`Dockerfile`](Dockerfile).
 
-The example hello world app in this repo uses `Mojolicious`, please feel free to use whatever framework /
-approach you like. The example is also in a single `.pl` file, please feel free to restructure
-the application to whatever structure you feel is appropriate. If you start with the example, then once you start things
-up you will be able to hit the test `GET /` endpoint at [http://localhost:8080](http://localhost:8080) and see "Hello, World!".
+The example hello world app in this repository uses [Mojolicious](https://docs.mojolicious.org/Mojolicious/Guides/Tutorial),
+but please feel free to use whatever framework / approach you'd like. The example is in a single [`app.pl`](app/app.pl) file, but you're welcome to restructure
+the application however you feel is appropriate. If you use the example, then once you start things
+up with `docker-compose up` you will be able to hit the test `GET /` endpoint at [http://localhost:8080](http://localhost:8080) and see "Hello, World!".
+**Remember that every time you change the Perl code, you will need to re-run `docker-compose up` for it to refresh your changes.**
 
-__5.__ Testing
+__3.__ Testing
 
 Unit tests are encouraged but not required; we'll understand if you spend your
 time on the solution rather than the tests. (Especially because we provide a
