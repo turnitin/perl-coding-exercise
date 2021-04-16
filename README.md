@@ -132,7 +132,8 @@ change the `CMD` that is used by the [`Dockerfile`](Dockerfile).
 
 The example hello world app in this repo uses `Mojolicious`, please feel free to use whatever framework /
 approach you like. The example is also in a single `.pl` file, please feel free to restructure
-the application to whatever structure you feel is appropriate.
+the application to whatever structure you feel is appropriate. If you start with the example, then once you start things
+up you will be able to hit the test `GET /` endpoint at [http://localhost:8080](http://localhost:8080) and see "Hello, World!".
 
 __5.__ Testing
 
@@ -154,7 +155,7 @@ And then point it at your solution, passing in the top-level URL to a running
 server:
 
 ```
-$ docker run --rm turnitin-check http://myhost:8080
+$ docker run --rm turnitin-check http://localhost:8080
 ```
 
 If everything is working you should expect to see output like this:
