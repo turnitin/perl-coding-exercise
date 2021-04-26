@@ -175,20 +175,22 @@ class VerifySearch(VerifyStudents):
         self.assert_first_names(doc, ['Jamie', 'Jimbo'])
 
     def test_no_match_started_after(self):
+        now = datetime.now()
         doc = self.assert_get_in(
             [200], 'With no match checking started_after',
-            query_args={'started_after': '2019-10-31'}
+            query_args={'started_after': str(now.year+10)+'-10-31'}
         ).json()
         self.assertEqual(doc['students'], [])
 
     def test_multiple_matches_started_after(self):
-        self.create(first_name="Chuck", started_at="2016-11-09")
-        self.create(first_name="Carol", started_at="2019-01-13")
-        self.create(first_name="Cindy", started_at="2018-04-08")
-        self.create(first_name="Carl", started_at="2017-09-12")
+        now = datetime.now()
+        self.create(first_name="Chuck", started_at=str(now.year-2)+"-11-09")
+        self.create(first_name="Carol", started_at=str(now.year+3)+"-01-13")
+        self.create(first_name="Cindy", started_at=str(now.year+2)+"-04-08")
+        self.create(first_name="Carl", started_at=str(now.year-1)+"-09-12")
         doc = self.assert_get_in(
             [200], 'With multiple matches checking started_after',
-            query_args={'started_after': '2018-03-31'}
+            query_args={'started_after': str(now.year+1)+'-03-31'}
         ).json()
         self.assert_first_names(doc, ['Carol', 'Cindy'])
 

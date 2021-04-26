@@ -142,8 +142,10 @@ up with `docker-compose up` you will be able to hit the test `GET /` endpoint at
 __3.__ Testing
 
 Unit tests are encouraged but not required; we'll understand if you spend your
-time on the solution rather than the tests. (Especially because we provide a
-test harness, see below.)
+time on the solution rather than the tests. Especially because we provide a
+[test harness](exercise), see below. It is likely a good idea to use the test harness
+to test your code early and as you go, maybe try approaching the problems in parts;
+create a student, get a student, find students.
 
 ## Checking your work
 
@@ -196,9 +198,11 @@ OK
 
 __1.__ Timeframe
 
-You should take a max of three hours to complete this exercise. We want to be
+You should take a maximum of three hours to complete this exercise. We want to be
 both respectful of your time and fair to other candidates who might not have
-a whole weekend to work on it.
+a whole weekend to work on it. It is a complex task, we are looking to see
+how you approach the problems. Try to pass as many of the [exercise](exercise)
+tests as you can, and be able to talk about the tests you didn't get to.
 
 __2.__ Git
 
