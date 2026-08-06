@@ -1,0 +1,6 @@
+schema_version: 1.0.0
+info:
+  domain: External
+  security_class: 'Class C: Dev Tools'
+ownership:
+  team: Interview
