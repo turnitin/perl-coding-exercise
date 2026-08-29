@@ -1,4 +1,4 @@
-FROM perl:5.28
+FROM perl:5.41.2
 
 COPY app /usr/src/myapp
 WORKDIR /usr/src/myapp
